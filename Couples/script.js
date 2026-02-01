@@ -16,8 +16,15 @@ start_board.addEventListener('click', (event) => {
     createBoard();
 });
 
-function createBoard() {
+function createBoard(columns) {
   gameBoard.textContent = "";
+
+  const template = document.getElementById('gameTableTemplate');
+  const clone = template.cloneNode;
+
+  const tableElem = clone.querySelector('.table');
+
+  tableElem. = 'grid';
 }
 // function createBoard() {  
 //   const BoardSize = 8;  
