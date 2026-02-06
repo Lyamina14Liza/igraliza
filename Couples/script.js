@@ -16,11 +16,15 @@ start_board.addEventListener('click', (event) => {
     createBoard();
 });
 
-function createBoard(columns) {
+function createBoard(columns, count) {
   gameBoard.textContent = "";
   const template = document.querySelector('#gameTableTemplate').cloneNode(true).content;
   const gameTable = template.querySelector('.table');
   const restartBtn =template.querySelector('.table__button');
+
+  for (let i = 0; i < count; i++) {
+    gameTable.append(createCard());
+}
 
   gameTable.style = `
     grid-template-columns: repeat(${columns}, 1fr);
@@ -32,4 +36,9 @@ function createBoard(columns) {
     location.reload();
   });
   gameBoard.append(restartBtn);
+}
+
+function createCard(flippedIcon){
+  const cardTemplate =document.querySelector('#cardTemplate').cloneNode(true).content;
+  const card = cardTemplate.querySelector('.card');
 }
