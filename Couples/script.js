@@ -41,4 +41,36 @@ function createBoard(columns, count) {
 function createCard(flippedIcon){
   const cardTemplate =document.querySelector('#cardTemplate').cloneNode(true).content;
   const card = cardTemplate.querySelector('.card');
+  card.querySelector('#flippedIcon').classList.add(`fa-${flippedIcon}`);
+
+  // card.addEventListener('click', (event) => gameLogic(event, card));
+
+  // rutern card означает, что получившийся объект "выбрасывается" в то место, где будет вызвана функция createCard
+  return card;
 }
+
+function createIconsArray(initialCount){
+  const cardsIcons = [
+    "compass",
+     "cloud",
+     "play", 
+     "bolt", 
+     "stop", 
+     "cogs", 
+     "atom", 
+     "basketball-ball", 
+     "arrows", 
+     "angle-left", 
+     "bars", "file", 
+     "filter", "gear", 
+     "folder", 
+     "folder-open", 
+     "shield", 
+     "scissors", 
+     "pen-clip"];
+};
+// slice - метод, который возвращает только некоторые элементы массива,
+//  начиная 0-м и заканчивая, например, 2-м, 8-м или 18-м
+//сделаем так, что если игрок выберет поле 4х4 (16 ячеек), то выберется 8 иконок
+let cards = cardsIcons.slice(0, Math.floor(initialCount / 2));
+// ...
